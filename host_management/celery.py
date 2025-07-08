@@ -34,7 +34,7 @@ app.conf.beat_schedule = {
         'schedule': crontab(minute=0, hour=0),  # 每天午夜执行统计任务
     },
     'ping-hosts': {
-        'task': 'host_manager.tasks.ping_all_hosts',
+        'task': 'hosts.tasks.ping_all_hosts',
         'schedule': crontab(minute=0),   # 每小时ping一次
     },
 }

@@ -35,6 +35,7 @@ class HostSerializer(serializers.ModelSerializer):
     computer_room_name = serializers.CharField(source='computer_room.name', read_only=True)
     city_name = serializers.CharField(source='computer_room.city.name', read_only=True)
 
+
     class Meta:
         model = Host
         fields = '__all__'

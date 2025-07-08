@@ -128,7 +128,7 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Celery Configuration Options
-CELERY_TIMEZONE = "Australia/Tasmania"  # 时区
+CELERY_TIMEZONE = "Asia/Shanghai"  # 时区
 CELERY_BROKER_URL = 'redis://localhost:6379/0'   # 消息代理
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # 结果存储
 

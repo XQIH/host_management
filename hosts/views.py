@@ -18,6 +18,7 @@ from django.utils.deprecation import MiddlewareMixin
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 
+
 class CityViewSet(viewsets.ModelViewSet):
     queryset = City.objects.all()
     serializer_class = CitySerializer
@@ -32,12 +33,12 @@ class HostViewSet(viewsets.ModelViewSet):
     queryset = Host.objects.all()
     serializer_class = HostSerializer
 
-    @action(methods=['get'], detail=False)
+    @action(methods=['get'], detail=True)
     def ping(self, request, pk=None):
         """触发异步ping检测"""
         host = self.get_object()
         task = async_ping_host.delay(host.id)  # 异步调用
-
+        print('任务已触发')
         return Response({
             'status': 'pending',
             'task_id': task.id,
